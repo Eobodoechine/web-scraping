@@ -3,7 +3,7 @@
   {
    "cell_type": "code",
    "execution_count": 21,
-   "id": "6aa221e6",
+   "id": "c2fda22d",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -19,10 +19,8 @@
   {
    "cell_type": "code",
    "execution_count": 30,
-   "id": "aba54f92",
-   "metadata": {
-    "scrolled": true
-   },
+   "id": "5789acd5",
+   "metadata": {},
    "outputs": [
     {
      "name": "stderr",
@@ -45,7 +43,7 @@
   {
    "cell_type": "code",
    "execution_count": 31,
-   "id": "868f57ea",
+   "id": "bf20ade2",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -58,7 +56,7 @@
   {
    "cell_type": "code",
    "execution_count": 34,
-   "id": "d4b41d7f",
+   "id": "822b9e97",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -71,7 +69,7 @@
   {
    "cell_type": "code",
    "execution_count": 35,
-   "id": "63a555d6",
+   "id": "c5b78a12",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -82,7 +80,7 @@
   {
    "cell_type": "code",
    "execution_count": 36,
-   "id": "9f0417c8",
+   "id": "6e095bdf",
    "metadata": {},
    "outputs": [
     {
@@ -115,7 +113,7 @@
   {
    "cell_type": "code",
    "execution_count": 37,
-   "id": "392bcdfc",
+   "id": "8ebb5e44",
    "metadata": {
     "scrolled": false
    },
@@ -132,7 +130,7 @@
   {
    "cell_type": "code",
    "execution_count": 38,
-   "id": "7bfc5ace",
+   "id": "533ff7a9",
    "metadata": {},
    "outputs": [
     {
@@ -158,10 +156,21 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 40,
-   "id": "62d43097",
+   "execution_count": 39,
+   "id": "c4449422",
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'<table border=\"1\" class=\"dataframe\">\\n  <thead>\\n    <tr style=\"text-align: right;\">\\n      <th></th>\\n      <th>Mars</th>\\n      <th>Earth</th>\\n    </tr>\\n    <tr>\\n      <th></th>\\n      <th></th>\\n      <th></th>\\n    </tr>\\n  </thead>\\n  <tbody>\\n    <tr>\\n      <th>Description</th>\\n      <td></td>\\n      <td></td>\\n    </tr>\\n    <tr>\\n      <th>Mars - Earth Comparison</th>\\n      <td>Mars</td>\\n      <td>Earth</td>\\n    </tr>\\n    <tr>\\n      <th>Diameter:</th>\\n      <td>6,779 km</td>\\n      <td>12,742 km</td>\\n    </tr>\\n    <tr>\\n      <th>Mass:</th>\\n      <td>6.39 × 10^23 kg</td>\\n      <td>5.97 × 10^24 kg</td>\\n    </tr>\\n    <tr>\\n      <th>Moons:</th>\\n      <td>2</td>\\n      <td>1</td>\\n    </tr>\\n    <tr>\\n      <th>Distance from Sun:</th>\\n      <td>227,943,824 km</td>\\n      <td>149,598,262 km</td>\\n    </tr>\\n    <tr>\\n      <th>Length of Year:</th>\\n      <td>687 Earth days</td>\\n      <td>365.24 days</td>\\n    </tr>\\n    <tr>\\n      <th>Temperature:</th>\\n      <td>-87 to -5 °C</td>\\n      <td>-88 to 58°C</td>\\n    </tr>\\n  </tbody>\\n</table>'"
+      ]
+     },
+     "execution_count": 39,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
    "source": [
     "url = 'https://galaxyfacts-mars.com/'\n",
     "tables = pd.read_html(url)\n",
@@ -171,13 +180,13 @@
     "comp.index = comp.index + 1  \n",
     "comp = comp.sort_index() \n",
     "comp.set_index('', inplace=True)\n",
-    "redplanet[\"comph\"] = comp.to_html()"
+    "comph = comp.to_html()"
    ]
   },
   {
    "cell_type": "code",
    "execution_count": 140,
-   "id": "40baea0c",
+   "id": "f75046dc",
    "metadata": {},
    "outputs": [
     {
@@ -329,7 +338,7 @@
   {
    "cell_type": "code",
    "execution_count": 150,
-   "id": "b9dd9927",
+   "id": "d76cdf44",
    "metadata": {},
    "outputs": [
     {
@@ -347,15 +356,17 @@
     "# results are returned as an iterable list\n",
     "titlez = soup.find_all('div', class_='item') \n",
     "for title in titlez:\n",
+    "        # Identify and return title of listing\n",
     "        linkz = title.find('a')['href']\n",
     "        urls='https://marshemispheres.com/' + linkz\n",
+    "        # Print results only if title, price, and link are available\n",
     "        print(urls)"
    ]
   },
   {
    "cell_type": "code",
    "execution_count": 185,
-   "id": "85c33a90",
+   "id": "610fdc9b",
    "metadata": {},
    "outputs": [
     {
@@ -388,7 +399,7 @@
   {
    "cell_type": "code",
    "execution_count": 186,
-   "id": "70c256d1",
+   "id": "3edd35b5",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -409,7 +420,7 @@
   {
    "cell_type": "code",
    "execution_count": 187,
-   "id": "63cf49ae",
+   "id": "bb557a59",
    "metadata": {},
    "outputs": [
     {
@@ -566,7 +577,7 @@
   {
    "cell_type": "code",
    "execution_count": 188,
-   "id": "aa8c631e",
+   "id": "e353356a",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -587,7 +598,7 @@
   {
    "cell_type": "code",
    "execution_count": 189,
-   "id": "e0935133",
+   "id": "63197f66",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -608,7 +619,7 @@
   {
    "cell_type": "code",
    "execution_count": 190,
-   "id": "d3389d4e",
+   "id": "8d88748c",
    "metadata": {},
    "outputs": [
     {
@@ -635,30 +646,37 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 41,
-   "id": "e59e4f34",
+   "execution_count": 191,
+   "id": "ba034460",
    "metadata": {},
    "outputs": [],
    "source": [
-    "browser.quit()"
+    "    browser.quit()"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 42,
-   "id": "8ac5b76d",
+   "execution_count": 193,
+   "id": "7f879e1b",
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "ename": "SyntaxError",
+     "evalue": "'return' outside function (<ipython-input-193-d9ef57e85fb5>, line 1)",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;36m  File \u001b[0;32m\"<ipython-input-193-d9ef57e85fb5>\"\u001b[0;36m, line \u001b[0;32m1\u001b[0m\n\u001b[0;31m    return hemisphere_image_urls\u001b[0m\n\u001b[0m                                ^\u001b[0m\n\u001b[0;31mSyntaxError\u001b[0m\u001b[0;31m:\u001b[0m 'return' outside function\n"
+     ]
+    }
+   ],
    "source": [
-    "def scrape_info():\n",
-    "    return redplanet\n",
-    "    return hemisphere_image_urls"
+    "return hemisphere_image_urls"
    ]
   },
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "1b64a9f7",
+   "id": "77250925",
    "metadata": {},
    "outputs": [],
    "source": []
